@@ -8,7 +8,6 @@ class Parser
     const COORDS_DELIMETER = ',';
     const END_OF_URL = '.json?language=ru&key=';
     const MAPTILER_KEYS = ['API_KEY_1', 'API_KEY_2'];
-
     const STEP = 0.02;
 
     protected $searchSquares = [
