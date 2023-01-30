@@ -7,7 +7,7 @@ class Parser
     const BASE_URL = 'https://api.maptiler.com/geocoding/';
     const COORDS_DELIMETER = ',';
     const END_OF_URL = '.json?language=ru&key=';
-    const MAPTILER_KEY = 'API_KEY';
+    const MAPTILER_KEYS = ['API_KEY_1', 'API_KEY_2'];
 
     const STEP = 0.02;
 
@@ -34,7 +34,7 @@ class Parser
 
     protected function getInfoFromMap($lat, $lng)
     {
-        $json = file_get_contents(self::BASE_URL . $lng . self::COORDS_DELIMETER . $lat . self::END_OF_URL . self::MAPTILER_KEY);
+        $json = file_get_contents(self::BASE_URL . $lng . self::COORDS_DELIMETER . $lat . self::END_OF_URL . array_rand(self::MAPTILER_KEYS));
         return json_decode($json);
     }
 
@@ -54,7 +54,7 @@ class Parser
                     $this->parseData($this->getInfoFromMap($lat, $lng), $cityId, $lat, $lng);
                     print_r($lat . ' ' . $lng . PHP_EOL);
                     $cityId++;
-                    sleep(2);
+                    sleep(0.5);
                 }
             }
         }
