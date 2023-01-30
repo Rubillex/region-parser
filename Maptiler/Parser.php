@@ -7,7 +7,7 @@ class Parser
     const BASE_URL = 'https://api.maptiler.com/geocoding/';
     const COORDS_DELIMETER = ',';
     const END_OF_URL = '.json?language=ru&key=';
-    const MAPTILER_KEY = 'hEJoVbCTY4IT0awoOVJ8';
+    const MAPTILER_KEY = 'API_KEY';
 
     const STEP = 0.02;
 
